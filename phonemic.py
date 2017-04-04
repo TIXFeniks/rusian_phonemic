@@ -21,7 +21,7 @@ gluh = set(gluh)
 
 def g2p_word(word):
     phonemes = []
-    word = word.lower()
+    word = word.lower().strip()
     for i, c in enumerate(word):
         if c in {u'ъ',u'ь'}:
             continue
@@ -31,7 +31,7 @@ def g2p_word(word):
                     phonemes.append(strong_change[c])
                 else:
                     phonemes.append(c)
-            elif i==0 or word[i-1] in {u'ъ',u'ь'} or word[i-1] in glas:
+            elif i==0 or word[i-1] in {u'ъ',u'ь',' '} or word[i-1] in glas:
                 phonemes.append(u'й')
                 phonemes.append(strong_change[c])
             else:
