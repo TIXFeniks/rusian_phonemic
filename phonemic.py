@@ -1,3 +1,6 @@
+#todo: fix the names of the variables
+#todo: Use the stressed syllable to change phonemes
+
 glas = set(u'яиюыаоэуе')
 
 zvonk = list(u'бвгджзрлнм')
@@ -43,3 +46,5 @@ def g2p_word(word):
     return phonemes
             
             
+all_tokens = []+list(filter(lambda c: not c in strong,glas))+[c+'\'' for c in myagk] + list(tverd)
+phoneme2token = {v:i for i,v in enumerate(all_tokens)}
